@@ -1,0 +1,122 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 15px;
+    color: #333;
+    line-height: 1.6;
+}
+h1, h2, h3, h4 {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+:root {
+    --primary: #2C3E50;
+    --secondary: #7F8C8D;
+    --background: #F4F4F6;
+    --surface: #E0E0E7;
+    --text: #333333;
+    --border: #D1D5DB;
+    --success: #2ECC71;
+    --warning: #F39C12;
+    --danger: #E74C3C;
+}
+
+.card {
+    background-color: var(--surface);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+.flex-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.4rem 0.9rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease-in-out;
+}
+.btn:hover {
+    background-color: #1A252F;
+}
+.btn.secondary {
+    background-color: var(--surface);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+.tag {
+    background-color: var(--secondary);
+    color: white;
+    font-size: 12px;
+    padding: 0.3rem 0.7rem;
+    border-radius: 12px;
+    margin-left: 0.5rem;
+}
+.tag.priority-high {
+    background-color: var(--danger);
+}
+.tag.priority-medium {
+    background-color: var(--warning);
+}
+.tag.priority-low {
+    background-color: var(--success);
+}
+.progress-bar-container {
+    background-color: #e0e0e0;
+    height: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.progress-bar-fill {
+    background-color: var(--primary);
+    height: 100%;
+    transition: width 0.3s ease-in-out;
+}
+.accordion {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    color: var(--primary);
+}
+.accordion-content {
+    margin-top: 0.5rem;
+    padding-left: 1rem;
+}
+
+/* Make all cards have thick borders */
+div[data-testid="stVerticalBlock"] > div[style*="border"] {
+    border: 2px solid #aaa !important;
+    border-radius: 8px !important;
+    padding: 1rem !important;
+    margin-bottom: 1rem;
+}
+
+/* Change all subheaders to a blue-grey */
+h3 {
+    color: #2c3e50 !important;
+    font-weight: 700 !important;
+}
+
+/* Improve buttons */
+button[kind="primary"] {
+    background-color: #2c3e50 !important;
+    color: #ffffff !important;
+    border-radius: 5px !important;
+    font-weight: bold;
+}
+
+button[kind="secondary"] {
+    background-color: #bdc3c7 !important;
+    color: #2c3e50 !important;
+    border-radius: 5px !important;
+}
