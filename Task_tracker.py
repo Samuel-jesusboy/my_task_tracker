@@ -193,6 +193,8 @@ def update_todo_callback(connection: SQLConnection, table: Table, todo_id: int):
         "description": st.session_state[f"edit_todo_form_{todo_id}__description"],
         "status": st.session_state[f"edit_todo_form_{todo_id}__status"],
         "requester": st.session_state[f"edit_todo_form_{todo_id}__requester"],
+        "label": st.session_state[f"edit_todo_form_{todo_id}__label"],
+        "priority": st.session_state[f"edit_todo_form_{todo_id}__priority"],
         "due_at": st.session_state[f"edit_todo_form_{todo_id}__due_date"],
     }
 
@@ -439,6 +441,36 @@ def todo_edit_widget(connection: SQLConnection, table: Table, todo_item: Todo):
             value=todo_item.description,
             key=f"edit_todo_form_{todo_id}__description",
         )
+
+        st.text_input(
+            "Requester",
+            value=todo_item.requester,
+            key=f"edit_todo_form_{todo_id}__requester"
+        )
+
+        col1, col2, col3 = st.columns(3)
+
+        with col1:
+            st.selectbox(
+                "Priority",
+                options=["low", "medium", "high"],
+                index=["low", "medium", "high"].index(todo_item.priority or "medium"),
+                key=f"edit_todo_form_{todo_id}__priority"
+            )
+        with col2:
+            st.selectbox(
+                "Status",
+                options=["to-do", "in progress", "completed", "blocked"],
+                index=["to-do", "in progress", "completed", "blocked"].index(todo_item.status or "to-do"),
+                key=f"edit_todo_form_{todo_id}__status"
+            )
+        with col3:
+            st.selectbox(
+                "Label",
+                options=["work", "school", "personal", "others"],
+                index=["work", "school", "personal", "others"].index(todo_item.label or "others"),
+                key=f"edit_todo_form_{todo_id}__label"
+            )
 
         st.date_input(
             "Due date",

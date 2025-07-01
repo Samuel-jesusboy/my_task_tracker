@@ -1,1 +1,6 @@
-penv/ 
+penv/
+*.db
+*.toml
+!.streamlit/config.toml  # Keep this specific file
+*.sqlite
+og_track.py
